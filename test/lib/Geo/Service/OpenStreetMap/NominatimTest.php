@@ -23,7 +23,7 @@ class NominatimTest extends \PHPUnit_Framework_TestCase
 
   public function testSearch()
   {
-    $this->service->search('Milano');
+    $this->service->search('Milan');
     $results = $this->service->getResults();
 
     $this->assertEquals('10', count($results));

@@ -32,7 +32,7 @@ class SearchTest extends \PHPUnit_Framework_TestCase
     $this->service->
            expects($this->once())->
            method('search')->
-           with('Milano');
+           with('Milan');
 
     $this->service->
            expects($this->once())->
@@ -40,7 +40,7 @@ class SearchTest extends \PHPUnit_Framework_TestCase
            will($this->returnValue(new \ArrayObject(array($this->location))));
 
     $search = new Search(array($this->service));
-    $search->query('Milano');
+    $search->query('Milan');
 
     $results = $search->getResults();
 
@@ -52,7 +52,7 @@ class SearchTest extends \PHPUnit_Framework_TestCase
    */
   public function testQueryWithoutService()
   {
-    $this->search->query('Milano');
+    $this->search->query('Milan');
   }
 
   /**
@@ -63,11 +63,11 @@ class SearchTest extends \PHPUnit_Framework_TestCase
     $this->service->
            expects($this->once())->
            method('search')->
-           with('questo è un indirizzo che non esiste')->
+           with('Not found')->
            will($this->throwException(new \Geo\Exception\NoResults));
 
     $this->search->addService($this->service);
-    $this->search->query('questo è un indirizzo che non esiste');
+    $this->search->query('Not found');
   }
 
   public function testQuery()
@@ -75,7 +75,7 @@ class SearchTest extends \PHPUnit_Framework_TestCase
     $this->service->
            expects($this->once())->
            method('search')->
-           with('Milano');
+           with('Milan');
 
     $this->service->
            expects($this->once())->
@@ -83,7 +83,7 @@ class SearchTest extends \PHPUnit_Framework_TestCase
            will($this->returnValue(new \ArrayObject(array($this->location))));
 
     $this->search->addService($this->service);
-    $this->search->query('Milano');
+    $this->search->query('Milan');
 
     $results = $this->search->getResults();
 

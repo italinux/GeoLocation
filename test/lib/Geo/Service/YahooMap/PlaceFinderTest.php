@@ -23,7 +23,7 @@ class PlaceFinderTest extends \PHPUnit_Framework_TestCase
 
   public function testSearch()
   {
-    $this->service->search('Milano');
+    $this->service->search('Milan');
     $results = $this->service->getResults();
 
     $this->assertEquals('1', count($results));
@@ -31,7 +31,7 @@ class PlaceFinderTest extends \PHPUnit_Framework_TestCase
     $this->assertInstanceOf('\Geo\Location', $results['0']);
     $this->assertEquals('45.468945', $results['0']->getLatitude());
     $this->assertEquals('9.181030', $results['0']->getLongitude());
-    $this->assertEquals('Milano MI', $results['0']->getAddress());
+    $this->assertEquals('Milan MI', $results['0']->getAddress());
     $this->assertEquals(0, $this->service->getStatus());
   }
 }
