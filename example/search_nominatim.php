@@ -17,9 +17,9 @@ $search = new Search();
 
 try
 {
-  $search->query('via Montenapoleone, Milano  ');
+  $search->query('12, Spencer road, Greenland  ');
   $location_a = $search->getFirst();
-  echo 'Address1: via Montenapoleone, Milano'.PHP_EOL;
+  echo 'Address1: 12, Spencer road, Greenland'.PHP_EOL;
   echo 'Latitude: '.$location_a->getLatitude().PHP_EOL;
   echo 'Longitude: '.$location_a->getLongitude().PHP_EOL.PHP_EOL;
 
